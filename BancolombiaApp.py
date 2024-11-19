@@ -25,8 +25,6 @@ from statistics import mean
 file_id = "15AzlfDEcywqERvQXJUYqeK-k5tYrHj8H"
 url = f"https://drive.google.com/uc?id={file_id}&export=download"
 bancolombia_fechas_join = pd.read_parquet(url)
-bancolombia_fechas_join = bancolombia_fechas_join.loc[1000000:]
-print(f'Base bancolombia: {bancolombia_fechas_join.shape[0]} obs.')
 
 # Iniciar Dash
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CERULEAN])

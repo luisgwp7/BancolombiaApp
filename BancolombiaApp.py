@@ -3,16 +3,10 @@ import pandas as pd
 import dash
 from dash import dcc, html, Input, Output
 import dash_bootstrap_components as dbc
-import pandas as pd
 import plotly.express as px
-import threading
 from statistics import mean
-import pandas as pd
-from IPython.display import display, HTML, Javascript 
-import os
-import sys
 
-base_dir = os.path.dirname(__file__) # archivos .py
+#base_dir = os.path.dirname(__file__) # archivos .py
 
 # base_dir = os.getcwd()  # Archivos .ipynb
 
@@ -31,7 +25,7 @@ base_dir = os.path.dirname(__file__) # archivos .py
 file_id = "15AzlfDEcywqERvQXJUYqeK-k5tYrHj8H"
 url = f"https://drive.google.com/uc?id={file_id}&export=download"
 bancolombia_fechas_join = pd.read_parquet(url)
-
+bancolombia_fechas_join = bancolombia_fechas_join.loc[1000000:]
 print(f'Base bancolombia: {bancolombia_fechas_join.shape[0]} obs.')
 
 # Iniciar Dash
@@ -355,5 +349,5 @@ def update_graphs(variable_filtro, variable_por_filtra, filtro_tamano, filtro_se
 
 
 if __name__ == '__main__':
-    app.run_server(debug=False)
+    app.run_server(debug=True)
     
